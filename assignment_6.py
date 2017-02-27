@@ -50,8 +50,7 @@ def resy():
         for t in teams:
             if t["teamname"] == search:                     #searches for team - if team has the same name as the search
                 return render_template("teams.html", t=t)       #send to resultpage with the team
-            else:
-                return render_template("done.html", noteam = noteam)        #give message about that the team dosent exist in json-database
+        return render_template("done.html", noteam = noteam)        #give message about that the team dosent exist in json-database
 
 #resultpage for all teams
 @app.route('/teams')
