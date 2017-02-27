@@ -1,48 +1,26 @@
 {
    "teams": [
       {
-         "comment": "ME", 
-         "email": "11", 
-         "player1": "ok", 
-         "player2": "ok", 
-         "player3": "ok", 
-         "player4": "j", 
-         "player5": "k", 
-         "teamname": "okwok", 
-         "tele": "nsEK000101"
-      }, 
+         "comment": "NI:C401",
+         "email": "Anton Nilsson",
+         "player1": "Hasse",
+         "player2": "Frasse",
+         "player3": "Dasse",
+         "player4": "Knasse",
+         "player5": "Obadja",
+         "teamname": "Sprintplanering",
+         "tele": "16:00:00"
+      },
       {
-         "comment": "Kalas! Vad roligt att vara med!", 
-         "email": "fynd@fyndsson.se", 
-         "player1": "Conny", 
-         "player2": "Honken", 
-         "player3": "Lillen", 
-         "player4": "Bengt", 
-         "player5": "Frasse", 
-         "teamname": "Baljans Vattendansklubb", 
-         "tele": "1234567789"
-      }, 
-      {
-         "comment": "Glatt lag med dansk p\u00e5br\u00e5", 
-         "email": "tysk@tyskmail.de", 
-         "player1": "Ulf med bastun", 
-         "player2": "Tornetr\u00e4skElof", 
-         "player3": "Illern Adolf", 
-         "player4": "Bismutter Al Kebabbas", 
-         "player5": "Hakkam den Bl\u00e5", 
-         "teamname": "TangoTrall", 
-         "tele": "09876543321"
-      }, 
-      {
-         "comment": "ME", 
-         "email": "11", 
-         "player1": "ok", 
-         "player2": "ok", 
-         "player3": "ok", 
-         "player4": "j", 
-         "player5": "k", 
-         "teamname": "okwok", 
-         "tele": "ns"
+         "comment": "NI:C301",
+         "email": "Mårten Persson",
+         "player1": "Stefan",
+         "player2": "Mårten",
+         "player3": "Anton",
+         "player4": "Pierre",
+         "player5": "Jerry",
+         "teamname": "Retrospect",
+         "tele": "14:00:00"
       }
    ]
 }
