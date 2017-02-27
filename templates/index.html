@@ -10,38 +10,37 @@
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <meta charset="utf-8">
-    <title>Lagsidan - ditt lag</title>
+    <title>Scrumbag</title>
 </head>
 
 <body>
     <div class="jumbotron">
         <div class="header">
-            <h1>Lagsidan</h1>
-            <h2>lägg till ditt lag idag!</h2>
+            <h1>Scrumbag</h1>
+            <h2>Ditt verktyg för Scrum</h2>
         </div>
         <nav class="navbar navbar-default">
             <div class="container">
-                <button type="button" class="btn btn-default navbar-btn"><a href="/">Startsidan</a></button>
-                <button type="button" class="btn btn-default navbar-btn"><a href="/addteam">Lägg till ett nytt lag!</a></button>
-                <button type="button" class="btn btn-default navbar-btn"><a href="/teams">Se alla lag på sidan</a></button>
-                <button type="button" class="btn btn-default navbar-btn"><a href="/edit">Redigera ett lag</a></button>
+                <button type="button" class="btn btn-default navbar-btn"><a href="/">Startsida</a></button>
+                <button type="button" class="btn btn-default navbar-btn"><a href="/addteam">Lägg till aktivitet</a></button>
+                <button type="button" class="btn btn-default navbar-btn"><a href="/teams">Aktiviteter</a></button>
+                <button type="button" class="btn btn-default navbar-btn"><a href="/edit">Redigera aktivtet</a></button>
             </div>
         </nav>
         <div class="content">
-            <p>
-                Välkommen till lagsidan! Detta är en sida för dig som vill lägga till dig lag i en lite större gemenskap! Här kan du lägga till ditt eget lag, söka efter andra lag och se alla existerande lags information.
-            </p>
-            <p>Du kan också få ut information om lagen på sidan i json-format. Allt du behöver göra är att skriva *sidans url*/api/teams. Vill du få ut ett specifikt lag skriver du *sidans url*/api/teams/lagets namn.
-            </p>
-            <h3>Några nyligen tillagada lag är:</h3> {% for t in teams %}
+            <p>Här kommer synas ett schema</p>
+
+            <h3>Senaste aktiviteter:</h3> {% for t in teams %}
             <h4>{{t.teamname}}</h4> {% endfor %}
         </div>
-        <h2>Hitta ett lag på sidan!</h2>
-        <form action="/res" id="searching" method="POST">
-            <input class="form-control" type="text" name="searchy" placeholder="SÖK">
-            <br>
-            <input type="submit" name="searchfield" class="btn btn-info">
-        </form>
+        <h2>Sök aktivitet</h2>
+        <div class="col-sm-6 col-sm-offset-3">
+            <form action="/res" id="searching" method="POST">
+                <input class="form-control" type="text" name="searchy" placeholder="SÖK">
+                <br>
+                <input type="submit" name="searchfield" class="btn btn-info">
+            </form>
+        </div>
     </div>
 
 </body>

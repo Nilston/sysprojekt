@@ -27,9 +27,9 @@ def index():
                 if searchedteam["teamname"] == search:
                     searchedteam["pos"] = count                 #count to make sure that we configure the right team in the jsonfile
                     return render_template("addteam.html", searchedteam=searchedteam)
-                else:
-                    return render_template("done.html", noteam = noteam)
-                count += 1
+                    count += 1
+            return render_template("done.html", noteam = noteam)
+
 
     else:
         return render_template("addteam.html")
