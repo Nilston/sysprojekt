@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" media="screen" title="no title" charset="utf-8">
-    <title>Lagsidan</title>
+    <title>Scrumbag</title>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <!-- jQuery library -->
@@ -17,15 +17,15 @@
 <body>
     <div class="jumbotron">
         <div class="header">
-            <h1>Lagsidan</h1>
-            <h2>lägg till ditt lag idag!</h2>
+            <h1>Scrumbag</h1>
+            <h2>Lägg till aktivitet!</h2>
         </div>
         <nav class="navbar navbar-default">
             <div class="container">
-                <button type="button" class="btn btn-default navbar-btn"><a href="/">Startsidan</a></button>
-                <button type="button" class="btn btn-default navbar-btn"><a href="/addteam">Lägg till ett nytt lag!</a></button>
-                <button type="button" class="btn btn-default navbar-btn"><a href="/teams">Se alla lag på sidan</a></button>
-                <button type="button" class="btn btn-default navbar-btn"><a href="/edit">Redigera ett lag</a></button>
+                <button type="button" class="btn btn-default navbar-btn"><a href="/">Startsida</a></button>
+                <button type="button" class="btn btn-default navbar-btn"><a href="/addteam">Lägg till aktivitet</a></button>
+                <button type="button" class="btn btn-default navbar-btn"><a href="/teams">Aktiviteter</a></button>
+                <button type="button" class="btn btn-default navbar-btn"><a href="/edit">Redigera aktivtet</a></button>
             </div>
         </nav>
         {% if searchedteam %}
@@ -34,27 +34,26 @@
         <form action="/updated" id="submit" method="POST">
             <div class="row">
                 <div class="col-md-6">
-
-                    <label for="player1">Spelare</label>
+                    <label for="player1">Deltagare</label>
                     <input class="form-control" type="text" name="player1" value="{{searchedteam.player1}}"><br><br>
-                    <label for="player2">Spelare</label>
+                    <label for="player2">Deltagare</label>
                     <input class="form-control" type="text" name="player2" value="{{searchedteam.player2}}"><br><br>
-                    <label for="player3">Spelare</label>
+                    <label for="player3">Deltagare</label>
                     <input class="form-control" type="text" name="player3" value="{{searchedteam.player3}}"><br><br>
-                    <label for="player4">Spelare</label>
+                    <label for="player4">Deltagare</label>
                     <input class="form-control" type="text" name="player4" value="{{searchedteam.player4}}"><br><br>
-                    <label for="player5">Spelare</label>
+                    <label for="player5">Deltagare</label>
                     <input class="form-control" type="text" name="player5" value="{{searchedteam.player5}}"><br><br>
                 </div>
 
                 <div class="col-md-6">
-                    <label for="teamname">Lagnamn</label>
+                    <label for="teamname">Titel</label>
                     <input class="form-control" type="text" name="teamname" value="{{searchedteam.teamname}}"><br><br>
-                    <label for="comment">Kommentar</label>
+                    <label for="comment">Lokal</label>
                     <input class="form-control" type="text" name="comment" value="{{searchedteam.comment}}"><br><br>
-                    <label for="tele">Telefon</label>
+                    <label for="tele">Tid</label>
                     <input class="form-control" type="text" name="tele" value="{{searchedteam.tele}}"><br><br>
-                    <label for="email">Email</label>
+                    <label for="email">Ansvarig</label>
                     <input class="form-control" type="text" name="email" value="{{searchedteam.email}}"><br><br>
                     <input class="form-control" id="posinput" type="text" name="pos" value="{{searchedteam.pos}}"><br><br>
                 </div>
@@ -66,29 +65,29 @@
         <form action="/done" id="submit" method="POST">
             <div class="row">
                 <div class="col-md-6">
-                    <input class="form-control" type="text" name="player5" placeholder="Spelare">
+                    <input class="form-control" type="text" name="player5" placeholder="Deltagare">
                     <br><br>
-                    <input class="form-control" type="text" name="player1" placeholder="Spelare">
+                    <input class="form-control" type="text" name="player1" placeholder="Deltagare">
                     <br><br>
-                    <input class="form-control" type="text" name="player2" placeholder="Spelare">
+                    <input class="form-control" type="text" name="player2" placeholder="Deltagare">
                     <br><br>
-                    <input class="form-control" type="text" name="player3" placeholder="Spelare">
+                    <input class="form-control" type="text" name="player3" placeholder="Deltagare">
                     <br><br>
-                    <input class="form-control" type="text" name="player4" placeholder="Spelare">
+                    <input class="form-control" type="text" name="player4" placeholder="Deltagare">
                     <br><br>
                 </div>
                 <div class="col-md-6">
-                    <input class="form-control" type="text" name="teamname" placeholder="Lagnamn">
+                    <input class="form-control" type="text" name="teamname" placeholder="Titel">
                     <br><br>
-                    <input class="form-control" type="text" name="comment" placeholder="Kommentar">
+                    <input class="form-control" type="text" name="comment" placeholder="Lokal">
                     <br><br>
-                    <input class="form-control" type="text" name="tele" placeholder="Telefon">
+                    <input class="form-control" type="text" name="tele" placeholder="Tid">
                     <br><br>
-                    <input class="form-control" type="text" name="email" placeholder="Email">
+                    <input class="form-control" type="text" name="email" placeholder="Ansvarig">
                     <br><br>
                 </div>
             </div>
-            <input type="submit" value="Lägg till laget!" class="btn btn-success">
+            <input type="submit" value="Lägg till aktiviteten!" class="btn btn-success">
         </form>
         {% endif %}
 </body>
