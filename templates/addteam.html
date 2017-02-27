@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" media="screen" title="no title" charset="utf-8">
+    <title>Lagsidan</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+</head>
+
+<body>
+    <div class="jumbotron">
+        <div class="header">
+            <h1>Lagsidan</h1>
+            <h2>lägg till ditt lag idag!</h2>
+        </div>
+        <nav class="navbar navbar-default">
+            <div class="container">
+                <button type="button" class="btn btn-default navbar-btn"><a href="/">Startsidan</a></button>
+                <button type="button" class="btn btn-default navbar-btn"><a href="/addteam">Lägg till ett nytt lag!</a></button>
+                <button type="button" class="btn btn-default navbar-btn"><a href="/teams">Se alla lag på sidan</a></button>
+                <button type="button" class="btn btn-default navbar-btn"><a href="/edit">Redigera ett lag</a></button>
+            </div>
+        </nav>
+        {% if searchedteam %}
+        <h1>Redigera {{ searchedteam.teamname }}</h1>
+        <h2>Ändra det du vill ändra!</h2>
+        <form action="/updated" id="submit" method="POST">
+            <div class="row">
+                <div class="col-md-6">
+
+                    <label for="player1">Spelare</label>
+                    <input class="form-control" type="text" name="player1" value="{{searchedteam.player1}}"><br><br>
+                    <label for="player2">Spelare</label>
+                    <input class="form-control" type="text" name="player2" value="{{searchedteam.player2}}"><br><br>
+                    <label for="player3">Spelare</label>
+                    <input class="form-control" type="text" name="player3" value="{{searchedteam.player3}}"><br><br>
+                    <label for="player4">Spelare</label>
+                    <input class="form-control" type="text" name="player4" value="{{searchedteam.player4}}"><br><br>
+                    <label for="player5">Spelare</label>
+                    <input class="form-control" type="text" name="player5" value="{{searchedteam.player5}}"><br><br>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="teamname">Lagnamn</label>
+                    <input class="form-control" type="text" name="teamname" value="{{searchedteam.teamname}}"><br><br>
+                    <label for="comment">Kommentar</label>
+                    <input class="form-control" type="text" name="comment" value="{{searchedteam.comment}}"><br><br>
+                    <label for="tele">Telefon</label>
+                    <input class="form-control" type="text" name="tele" value="{{searchedteam.tele}}"><br><br>
+                    <label for="email">Email</label>
+                    <input class="form-control" type="text" name="email" value="{{searchedteam.email}}"><br><br>
+                    <input class="form-control" id="posinput" type="text" name="pos" value="{{searchedteam.pos}}"><br><br>
+                </div>
+            </div>
+            <input type="submit" value="Genomför ändringar!" class="btn btn-success">
+        </form>
+        {% else %}
+        <h2>Lägg till ditt lag!</h2>
+        <form action="/done" id="submit" method="POST">
+            <div class="row">
+                <div class="col-md-6">
+                    <input class="form-control" type="text" name="player5" placeholder="Spelare">
+                    <br><br>
+                    <input class="form-control" type="text" name="player1" placeholder="Spelare">
+                    <br><br>
+                    <input class="form-control" type="text" name="player2" placeholder="Spelare">
+                    <br><br>
+                    <input class="form-control" type="text" name="player3" placeholder="Spelare">
+                    <br><br>
+                    <input class="form-control" type="text" name="player4" placeholder="Spelare">
+                    <br><br>
+                </div>
+                <div class="col-md-6">
+                    <input class="form-control" type="text" name="teamname" placeholder="Lagnamn">
+                    <br><br>
+                    <input class="form-control" type="text" name="comment" placeholder="Kommentar">
+                    <br><br>
+                    <input class="form-control" type="text" name="tele" placeholder="Telefon">
+                    <br><br>
+                    <input class="form-control" type="text" name="email" placeholder="Email">
+                    <br><br>
+                </div>
+            </div>
+            <input type="submit" value="Lägg till laget!" class="btn btn-success">
+        </form>
+        {% endif %}
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+body{
+  text-align: center;
+  font-family: 'Lato', sans-serif;
+}
+.jumbotron{
+  padding: 5%;
+  font-family: 'Lato', sans-serif;
+  height: 100%;
+}
+
+.header{
+  border-radius: 5px;
+  background-image: url(http://feelgrafix.com/data/background-images/Background-Images-19.jpg);
+  background-position: right bottom;
+}
+
+.team{
+  background-color: white;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+#posinput{
+  visibility: hidden;
+}
