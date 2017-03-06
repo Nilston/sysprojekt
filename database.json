@@ -1,15 +1,15 @@
 {
-   "teams": [
+   "activity": [
       {
-         "comment": "NI:C401",
-         "email": "Anton Nilsson",
+         "location": "NI:C401",
+         "contact": "Anton Nilsson",
          "player1": "Hasse",
          "player2": "Frasse",
          "player3": "Dasse",
          "player4": "Knasse",
          "player5": "Obadja",
-         "teamname": "Sprintplanering",
-         "tele": "16:00:00"
+         "name": "Sprintplanering",
+         "time": "16:00:00"
       },
       {
          "comment": "NI:C301",
