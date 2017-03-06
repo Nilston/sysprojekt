@@ -23,39 +23,39 @@
         <nav class="navbar navbar-default">
             <div class="container">
                 <button type="button" class="btn btn-default navbar-btn"><a href="/">Startsida</a></button>
-                <button type="button" class="btn btn-default navbar-btn"><a href="/addteam">Lägg till aktivitet</a></button>
-                <button type="button" class="btn btn-default navbar-btn"><a href="/teams">Aktiviteter</a></button>
+                <button type="button" class="btn btn-default navbar-btn"><a href="/addactivity">Lägg till aktivitet</a></button>
+                <button type="button" class="btn btn-default navbar-btn"><a href="/activities">Aktiviteter</a></button>
                 <button type="button" class="btn btn-default navbar-btn"><a href="/edit">Redigera aktivtet</a></button>
             </div>
         </nav>
-        {% if searchedteam %}
-        <h1>Redigera {{ searchedteam.teamname }}</h1>
+        {% if activity %}
+        <h1>Redigera {{ activity.name }}</h1>
         <h2>Ändra det du vill ändra!</h2>
         <form action="/updated" id="submit" method="POST">
             <div class="row">
                 <div class="col-md-6">
                     <label for="player1">Deltagare</label>
-                    <input class="form-control" type="text" name="player1" value="{{searchedteam.player1}}"><br><br>
+                    <input class="form-control" type="text" name="player1" value="{{activity.player1}}"><br><br>
                     <label for="player2">Deltagare</label>
-                    <input class="form-control" type="text" name="player2" value="{{searchedteam.player2}}"><br><br>
+                    <input class="form-control" type="text" name="player2" value="{{activity.player2}}"><br><br>
                     <label for="player3">Deltagare</label>
-                    <input class="form-control" type="text" name="player3" value="{{searchedteam.player3}}"><br><br>
+                    <input class="form-control" type="text" name="player3" value="{{activity.player3}}"><br><br>
                     <label for="player4">Deltagare</label>
-                    <input class="form-control" type="text" name="player4" value="{{searchedteam.player4}}"><br><br>
+                    <input class="form-control" type="text" name="player4" value="{{activity.player4}}"><br><br>
                     <label for="player5">Deltagare</label>
-                    <input class="form-control" type="text" name="player5" value="{{searchedteam.player5}}"><br><br>
+                    <input class="form-control" type="text" name="player5" value="{{activity.player5}}"><br><br>
                 </div>
 
                 <div class="col-md-6">
                     <label for="teamname">Titel</label>
-                    <input class="form-control" type="text" name="teamname" value="{{searchedteam.teamname}}"><br><br>
+                    <input class="form-control" type="text" name="teamname" value="{{activity.name}}"><br><br>
                     <label for="comment">Lokal</label>
-                    <input class="form-control" type="text" name="comment" value="{{searchedteam.comment}}"><br><br>
+                    <input class="form-control" type="text" name="comment" value="{{activity.location}}"><br><br>
                     <label for="tele">Tid</label>
-                    <input class="form-control" type="text" name="tele" value="{{searchedteam.tele}}"><br><br>
+                    <input class="form-control" type="text" name="tele" value="{{activity.time}}"><br><br>
                     <label for="email">Ansvarig</label>
-                    <input class="form-control" type="text" name="email" value="{{searchedteam.email}}"><br><br>
-                    <input class="form-control" id="posinput" type="text" name="pos" value="{{searchedteam.pos}}"><br><br>
+                    <input class="form-control" type="text" name="email" value="{{activity.contact}}"><br><br>
+                    <input class="form-control" id="posinput" type="text" name="pos" value="{{activity.pos}}"><br><br>
                 </div>
             </div>
             <input type="submit" value="Genomför ändringar!" class="btn btn-success">

@@ -9,30 +9,30 @@ app = Flask(__name__)
 def startpage():
     with open('database.json') as json_file:
         data = json.load(json_file)
-        teams = data["activity"]
-    return render_template("index.html", teams=teams)
+        activities = data["activity"]
+    return render_template("index.html", activities=activities)
 
 #the add-team route is taking care of input to the database. it also handles the
 #editpages entries.
-@app.route('/addteam', methods = ['POST', 'GET'])
+@app.route('/addactivity', methods = ['POST', 'GET'])
 def index():
     if request.method == 'POST':
         search = request.form['searching']
         with open('database.json') as json_file:
             data = json.load(json_file)
             count = 0
-            noteam = "Det fanns inget lag med det namnet!"      #message for no team
-            teams = data["activity"]
-            for searchedteam in teams:                          #search for the team in the dictionary we gotten from the jsonfile
-                if searchedteam["name"] == search:
-                    searchedteam["pos"] = count                 #count to make sure that we configure the right team in the jsonfile
-                    return render_template("addteam.html", searchedteam=searchedteam)
+            noactivity = "Det fanns ingen aktivitet med det namnet!"      #message for no team
+            activities = data["activity"]
+            for activity in activities:                          #search for the team in the dictionary we gotten from the jsonfile
+                if activity["name"] == search:
+                    activity["pos"] = count                 #count to make sure that we configure the right team in the jsonfile
+                    return render_template("addactivity.html", activity=activity)
                     count += 1
-            return render_template("done.html", noteam = noteam)
+            return render_template("done.html", noactivity = noactivity)
 
 
     else:
-        return render_template("addteam.html")
+        return render_template("addactivity.html")
 
 #editpage for editing the information in the teams
 @app.route('/edit', methods = ['POST', 'GET'])
@@ -45,67 +45,57 @@ def resy():
     search = request.form['searchy']
     with open('database.json') as json_file:
         data = json.load(json_file)
-        teams = data["activity"]
-        noteam = "Det fanns inget lag med det namnet!"
-        for t in teams:
+        activities = data["activity"]
+        noactivity = "Det fanns inget aktivitet med det namnet!"
+        for t in activities:
             if t["name"] == search:                     #searches for team - if team has the same name as the search
-                return render_template("teams.html", t=t)       #send to resultpage with the team
-        return render_template("done.html", noteam = noteam)        #give message about that the team dosent exist in json-database
+                return render_template("activities.html", t=t)       #send to resultpage with the team
+        return render_template("done.html", noactivity = noactivity)        #give message about that the team dosent exist in json-database
 
 #resultpage for all teams
-@app.route('/teams')
+@app.route('/activities')
 def search():
     with open('database.json') as json_file:
         data = json.load(json_file)
-        teams = data["teams"]
-        return render_template("teams.html", teams=teams)
-
-#extra functionality - if someone knows the teamname, they can just enter the name in the url if they write like url/team/Balsta Boys.
-@app.route('/teams/<teamname>')
-def searchteam(teamname):
-    with open('database.json') as json_file:
-        data = json.load(json_file)
-        teams = data["activity"]
-        for t in teams:
-            if t["name"] == teamname:
-                return render_template("teams.html", t=t)
+        activities = data["activity"]
+        return render_template("activities.html", activities=activities)
 
 #update-page to tell the user that information has been updated
 @app.route('/updated', methods = ['POST', 'GET'])
 def updated():
     if request.method == 'POST':            #request all the info that could be updated
-        teamname = request.form['name']
+        name = request.form['name']
         player1 = request.form['player1']
         player2 = request.form['player2']
         player3 = request.form['player3']
         player4 = request.form['player4']
         player5 = request.form['player5']
-        comment = request.form['location']
-        tele = request.form['time']
-        email = request.form['contact']
+        location = request.form['location']
+        time = request.form['time']
+        contact = request.form['contact']
         pos = int(request.form['pos'])      #converts the indice to an int
-        update_team_json(pos, teamname, player1, player2, player3, player4, player5, comment, tele, email)#sends to the method
-        return render_template("updated.html", teamname=teamname)
+        update_team_json(pos, name, player1, player2, player3, player4, player5, location, time, contact)#sends to the method
+        return render_template("updated.html", name=name)
 
 #done-page that gives feedback to user regarding adding a new team to the database.
 @app.route('/done', methods = ['POST', 'GET'])
 def done():
     if request.method == 'POST':                #requests all fields
-        teamname = request.form['name']
+        name = request.form['name']
         player1 = request.form['player1']
         player2 = request.form['player2']
         player3 = request.form['player3']
         player4 = request.form['player4']
         player5 = request.form['player5']
-        comment = request.form['location']
-        tele = request.form['time']
-        email = request.form['contact']
-        add_team_json(teamname, player1, player2, player3, player4, player5, comment, tele, email) #sends to method
-        return render_template("done.html", teamname=teamname)
+        location = request.form['location']
+        time = request.form['time']
+        contact = request.form['contact']
+        add_team_json(name, player1, player2, player3, player4, player5, location, time, contact) #sends to method
+        return render_template("done.html", name=name)
 
 #add_team_json adds teams to the database.json-file.
-def add_team_json(teamname, player1, player2, player3, player4, player5, comment, tele, email):
-    data = {"name":teamname, "player1":player1, "player2": player2, "player3": player3, "player4": player4, "player5":player5, "location":comment, "time":tele, "contact":email}
+def add_team_json(name, player1, player2, player3, player4, player5, location, time, contact):
+    data = {"name":name, "player1":player1, "player2": player2, "player3": player3, "player4": player4, "player5":player5, "location":location, "time":time, "contact":contact}
     with open('database.json') as json_file:
         user = json.load(json_file)
         user["activity"].append(data)
@@ -113,41 +103,22 @@ def add_team_json(teamname, player1, player2, player3, player4, player5, comment
         json.dump(user, json_file, indent=3)
     pass
 #updates team information in the jsonfile.
-def update_team_json(pos, teamname, player1, player2, player3, player4, player5, comment, tele, email):
+def update_team_json(pos, name, player1, player2, player3, player4, player5, location, time, contact):
     with open('database.json', 'r') as f:
         json_data = json.load(f)
-        team = json_data["activity"][pos]  #finds proper element
-        team['teamname'] = teamname
-        team['player1'] = player1
-        team['player2'] = player2
-        team['player3'] = player3
-        team['player4'] = player4
-        team['player5'] = player5
-        team['comment'] = comment
-        team['tele'] = tele
-        team['email'] = email
-        json_data["activity"][pos] = team  #updates proper element with new information
+        activity = json_data["activity"][pos]  #finds proper element
+        activity['teamname'] = name
+        activity['player1'] = player1
+        activity['player2'] = player2
+        activity['player3'] = player3
+        activity['player4'] = player4
+        activity['player5'] = player5
+        activity['comment'] = location
+        activity['tele'] = time
+        activity['email'] = contact
+        json_data["activity"][pos] = activity  #updates proper element with new information
     with open('database.json', 'w') as f:
         json.dump(json_data, f, indent=3)
-
-
-#jsonify converts the dictionary to a jsonobject
-@app.route('/api/teams')
-def users():
-    with open('database.json') as json_file:
-        users = json.load(json_file)
-        return jsonify(users)
-
-#finds a team by entering a team-name in the url. this way it is easier for a users
-# of this website to make jsoncalls to our website
-@app.route('/api/teams/<teamname>')
-def findusers(teamname):
-    with open('database.json') as json_file:
-        data = json.load(json_file)
-        teams = data["activity"]
-        for t in teams:
-            if t["name"] == teamname:
-                return jsonify(t)
 
 #errorhandler for the 404
 @app.errorhandler(404)
