@@ -12,15 +12,15 @@
          "time": "16:00:00"
       },
       {
-         "comment": "NI:C301",
-         "email": "Mårten Persson",
+         "location": "NI:C301",
+         "contact": "Mårten Persson",
          "player1": "Stefan",
          "player2": "Mårten",
          "player3": "Anton",
          "player4": "Pierre",
          "player5": "Jerry",
-         "teamname": "Retrospect",
-         "tele": "14:00:00"
+         "name": "Retrospect",
+         "time": "14:00:00"
       }
    ]
 }
