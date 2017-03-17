@@ -24,12 +24,15 @@ def index():
             noactivity = "Det fanns ingen aktivitet med det namnet!"      #message for no team
             activities = data["activity"]
             for activity in activities:                          #search for the team in the dictionary we gotten from the jsonfile
+                print count
+                print len(activities) - 1
                 if activity["name"] == search:
                     activity["pos"] = count                 #count to make sure that we configure the right team in the jsonfile
                     return render_template("addactivity.html", activity=activity)
-                else:
+                if activity["name"] != search and count == len(activities) - 1:
                     return render_template("done.html", noactivity = noactivity)
                 count += 1
+
 
 
     else:
@@ -114,12 +117,13 @@ def update_team_json(pos, name, player1, player2, player3, player4, player5, loc
         activity['player3'] = player3
         activity['player4'] = player4
         activity['player5'] = player5
-        activity['comment'] = location
-        activity['tele'] = time
-        activity['email'] = contact
+        activity['location'] = location
+        activity['time'] = time
+        activity['contact'] = contact
         json_data["activity"][pos] = activity  #updates proper element with new information
     with open('database.json', 'w') as f:
         json.dump(json_data, f, indent=3)
+    pass
 
 #errorhandler for the 404
 @app.errorhandler(404)
