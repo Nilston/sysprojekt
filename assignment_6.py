@@ -27,8 +27,9 @@ def index():
                 if activity["name"] == search:
                     activity["pos"] = count                 #count to make sure that we configure the right team in the jsonfile
                     return render_template("addactivity.html", activity=activity)
-                    count += 1
-            return render_template("done.html", noactivity = noactivity)
+                else:
+                    return render_template("done.html", noactivity = noactivity)
+                count += 1
 
 
     else:
@@ -107,7 +108,7 @@ def update_team_json(pos, name, player1, player2, player3, player4, player5, loc
     with open('database.json', 'r') as f:
         json_data = json.load(f)
         activity = json_data["activity"][pos]  #finds proper element
-        activity['teamname'] = name
+        activity['name'] = name
         activity['player1'] = player1
         activity['player2'] = player2
         activity['player3'] = player3

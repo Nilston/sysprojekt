@@ -48,13 +48,13 @@
 
                 <div class="col-md-6">
                     <label for="teamname">Titel</label>
-                    <input class="form-control" type="text" name="teamname" value="{{activity.name}}"><br><br>
+                    <input class="form-control" type="text" name="name" value="{{activity.name}}"><br><br>
                     <label for="comment">Lokal</label>
-                    <input class="form-control" type="text" name="comment" value="{{activity.location}}"><br><br>
+                    <input class="form-control" type="text" name="location" value="{{activity.location}}"><br><br>
                     <label for="tele">Tid</label>
-                    <input class="form-control" type="text" name="tele" value="{{activity.time}}"><br><br>
+                    <input class="form-control" type="datetime-local" name="time" value="{{activity.time}}"><br><br>
                     <label for="email">Ansvarig</label>
-                    <input class="form-control" type="text" name="email" value="{{activity.contact}}"><br><br>
+                    <input class="form-control" type="text" name="contact" value="{{activity.contact}}"><br><br>
                     <input class="form-control" id="posinput" type="text" name="pos" value="{{activity.pos}}"><br><br>
                 </div>
             </div>
@@ -80,7 +80,7 @@
                     <br><br>
                     <input class="form-control" type="text" name="location" placeholder="Lokal">
                     <br><br>
-                    <input class="form-control" type="text" name="time" placeholder="Tid">
+                    <input class="form-control" type="datetime-local" name="time" placeholder="Tid">
                     <br><br>
                     <input class="form-control" type="text" name="contact" placeholder="Ansvarig">
                     <br><br>

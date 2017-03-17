@@ -9,7 +9,7 @@
          "player3": "Dasse", 
          "player4": "Knasse", 
          "player5": "Obadja", 
-         "time": "16:00:00"
+         "time": "2017-03-16T11:00"
       }, 
       {
          "contact": "M\u00e5rten Persson", 
@@ -20,7 +20,7 @@
          "player3": "Anton", 
          "player4": "Pierre", 
          "player5": "Jerry", 
-         "time": "14:00:00"
+         "time": "2017-03-16T12:00"
       }, 
       {
          "contact": "kok", 
@@ -31,7 +31,29 @@
          "player3": "ok", 
          "player4": "ok", 
          "player5": "ok", 
-         "time": "oko"
+         "time": "2017-03-16T13:00"
+      }, 
+      {
+         "contact": "oj", 
+         "location": "oj", 
+         "name": "oj", 
+         "player1": "oj", 
+         "player2": "oj", 
+         "player3": "oj", 
+         "player4": "oj", 
+         "player5": "oj", 
+         "time": "2017-03-16T14:00"
+      }, 
+      {
+         "contact": "anton", 
+         "location": "oij", 
+         "name": "Bajs", 
+         "player1": "ijo", 
+         "player2": "ijoi", 
+         "player3": "joij", 
+         "player4": "oij", 
+         "player5": "aosidjo", 
+         "time": "2017-03-16T15:00"
       }
    ]
 }

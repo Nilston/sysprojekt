@@ -2,13 +2,13 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" media="screen" title="no title" charset="utf-8">
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Latest compiled JavaScript -->
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" media="screen" title="no title" charset="utf-8">
     <meta charset="utf-8">
     <title>Scrumbag</title>
 </head>
@@ -28,10 +28,10 @@
             </div>
         </nav>
         <div class="content">
-            <p>Här kommer synas ett schema</p>
-
-            <h3>Senaste aktiviteter:</h3> {% for t in activities %}
-            <h4>{{t.name}}</h4> {% endfor %}
+            <h3>Kommande aktiviteter:</h3>
+            {% for t in activities %}
+            <div class="post-it">
+            <h4><b>{{t.time}}</b></h4><h4>{{t.name}}</h4></div>{% endfor %}
         </div>
         <h2>Sök aktivitet</h2>
         <div class="col-sm-6 col-sm-offset-3">
