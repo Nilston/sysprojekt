@@ -87,14 +87,15 @@ def done():
         add_team_json(name, player1, player2, player3, player4, player5, location, time, contact)
         return render_template("done.html", name=name)
 
-def add_team_json(name, player1, player2, player3, player4, player5, location, time, contact):
+def add_team_json(name, player1, player2, player3, player4, player5, location, time, contact, database='database.json'):
     data = {"name":name, "player1":player1, "player2": player2, "player3": player3, "player4": player4, "player5":player5, "location":location, "time":time, "contact":contact}
-    with open('database.json') as json_file:
+    with open(database) as json_file:
         user = json.load(json_file)
         user["activity"].append(data)
-    with open("database.json", "w") as json_file:
+    with open(database, "w") as json_file:
         json.dump(user, json_file, indent=3)
-    pass
+        return True
+    return False
 
 def update_team_json(pos, name, player1, player2, player3, player4, player5, location, time, contact):
     with open('database.json', 'r') as f:
@@ -112,7 +113,8 @@ def update_team_json(pos, name, player1, player2, player3, player4, player5, loc
         json_data["activity"][pos] = activity
     with open('database.json', 'w') as f:
         json.dump(json_data, f, indent=3)
-    pass
+        return True
+    return False
 
 @app.errorhandler(404)
 def page_not_found(e):
